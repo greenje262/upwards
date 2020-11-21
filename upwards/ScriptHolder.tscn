@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UnZialish.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 128
+font_data = ExtResource( 1 )
+
+[sub_resource type="QuadMesh" id=2]
+size = Vector2( 4, 4 )
+
+[sub_resource type="ViewportTexture" id=3]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="SpatialMaterial" id=4]
+resource_local_to_scene = true
+flags_transparent = true
+flags_unshaded = true
+flags_albedo_tex_force_srgb = true
+albedo_texture = SubResource( 3 )
+
+[node name="ScriptHolder" type="Spatial"]
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 1600, 1600 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Control" type="Control" parent="Viewport"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_right = 1600.0
+margin_bottom = 1600.0
+
+[node name="Panel" type="Panel" parent="Viewport/Control"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_right = 1600.0
+margin_bottom = 1600.0
+
+[node name="Label" type="Label" parent="Viewport/Control/Panel"]
+self_modulate = Color( 0.972549, 1, 0.529412, 1 )
+margin_right = 1600.0
+margin_bottom = 1600.0
+custom_fonts/font = SubResource( 1 )
+text = "BIG LOL"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="3DPlane" type="MeshInstance" parent="."]
+mesh = SubResource( 2 )
+material/0 = SubResource( 4 )

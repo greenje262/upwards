@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/strong wind blowing.ogg-5cc77486fa4b6d403da279babdb0c95f.oggstr"
+
+[deps]
+
+source_file="res://strong wind blowing.ogg"
+dest_files=[ "res://.import/strong wind blowing.ogg-5cc77486fa4b6d403da279babdb0c95f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

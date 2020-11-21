@@ -1,0 +1,63 @@
+[UPWARDS]
+
+Core mechanic
+    Climbing a tower and making a final choice at the end
+
+Core gameplay loop
+    Climb a flight of stairs, read the story, repeat
+    At the end, choose to quit the game or jump from the tower
+
+Intended player experience
+    Short, thoughtful
+
+Theme
+    Dark, somber
+
+Primary features
+    Tower stairs (spiral stairs? on rails?)
+    Door closes between floors
+    Writing on the walls
+    Parapet at the top
+
+Secondary features
+    Bottom floor
+    Music, wind, and footsteps
+
+Polish
+    Title screen
+    Door closing animation
+
+What do I need to learn?
+    How to make climbable stairs
+    Texturing walls and lighting
+
+Workflow
+    Write the script, broken up by floor
+    Set up player and movement
+    Set game to quit upon player reaching a certain y value (the fall), or on button press
+    Build the stairs, and teleport the player to the bottom set of stairs when they reach the top set
+    Set up textures and lights on the stairs and hallway
+    Build the wall text, and set it to cycle through the script
+    Build the parapet at the top of the stairs, overlooking a city
+    Set teleporter to end upon exhausting the text, and door to close behind player in parapet
+    Find and implement music and footsteps, replacing music with wind at the top of the parapet
+    Create a bottom floor rotunda
+
+Other notes
+    Should the shit be on rails?
+    Should I have a voiceover coupled with writing on the wall?
+
+Classic Horror 1 by Kevin MacLeod
+Link: https://incompetech.filmmusic.io/song/3511-classic-horror-1
+License: http://creativecommons.org/licenses/by/4.0/
+
+UnZialish font
+https://www.dafont.com/unzialish.font
+
+Sound effects:
+Steps
+https://opengameart.org/content/platformer-sounds-terminal-interaction-door-shots-bang-and-footsteps
+Blowing wind
+https://opengameart.org/content/strong-wind-blowing
+
+Game built in Godot engine

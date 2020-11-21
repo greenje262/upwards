@@ -1,0 +1,419 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World.gd" type="Script" id=2]
+[ext_resource path="res://Stairs.tscn" type="PackedScene" id=3]
+[ext_resource path="res://StairsBottom.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Rotunda.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ScriptHolder.tscn" type="PackedScene" id=6]
+[ext_resource path="res://nightsky.png" type="Texture" id=7]
+[ext_resource path="res://Block.tscn" type="PackedScene" id=8]
+[ext_resource path="res://TowerTop.tscn" type="PackedScene" id=9]
+[ext_resource path="res://strong wind blowing.ogg" type="AudioStream" id=10]
+[ext_resource path="res://classic-horror-1-by-kevin-macleod-from-filmmusic-io.ogg" type="AudioStream" id=11]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 7 )
+
+[sub_resource type="SphereMesh" id=2]
+material = SubResource( 1 )
+flip_faces = true
+radius = 64.0
+height = 96.0
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.0117647, 0, 0.117647, 1 )
+
+[sub_resource type="PlaneMesh" id=4]
+material = SubResource( 3 )
+size = Vector2( 100, 130 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.0117647, 0, 0.117647, 1 )
+
+[sub_resource type="CubeMesh" id=6]
+material = SubResource( 5 )
+size = Vector3( 4, 12, 4 )
+
+[node name="World" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -53.52, 0 )
+script = ExtResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 10.5, 2.3, -1.5 )
+
+[node name="Stairs2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6, 0 )
+
+[node name="Stairs3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.2, 0 )
+
+[node name="Stairs4" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.8, 0 )
+
+[node name="Stairs" parent="." instance=ExtResource( 4 )]
+
+[node name="Rotunda" parent="." instance=ExtResource( 5 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 9.8, 0, -1.5 )
+
+[node name="blocktrigger" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.231, 6.774, 0.093 )
+
+[node name="ScriptHolder" parent="." instance=ExtResource( 6 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 2.9, 11.5, -1.5 )
+
+[node name="NightSky" type="MeshInstance" parent="."]
+transform = Transform( -1.62921e-07, 1, 0, 1, 1.62921e-07, 3.25841e-07, 3.25841e-07, 5.30863e-14, -1, 0, 53.8971, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="GroundLevel" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 53.8971, 0 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Stairs5" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 69, 0 )
+
+[node name="Stairs6" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 73.6, 0 )
+
+[node name="TopBlock" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.231, 71.174, 0.093 )
+
+[node name="TowerTop" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.282, 69.45, -0.03 )
+
+[node name="Buildings" type="Spatial" parent="."]
+
+[node name="BuildingStyleA" type="MeshInstance" parent="Buildings"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 58.9754, 56.8573 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA2" type="MeshInstance" parent="Buildings"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0195, 56.4639, 40.8459 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA3" type="MeshInstance" parent="Buildings"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4941, 52.023, 52.7649 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA4" type="MeshInstance" parent="Buildings"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.19445, 55.1698, 56.8573 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA5" type="MeshInstance" parent="Buildings"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.1584, 53.265, 41.5079 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA6" type="MeshInstance" parent="Buildings"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.88324, 56.8814, 51.5761 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA7" type="MeshInstance" parent="Buildings"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.3503, 52.0884, 43.3077 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA8" type="MeshInstance" parent="Buildings"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5053, 53.4648, 51.4884 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA9" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.529535, 0, -0.848288, 0, 1, 0, 0.848288, 0, -0.529535, 6.94945, 59.7701, 38.8797 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA10" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.529535, 0, -0.848288, 0, 1, 0, 0.848288, 0, -0.529535, 31.1327, 57.2586, 30.376 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA11" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.529535, 0, -0.848288, 0, 1, 0, 0.848288, 0, -0.529535, 21.2733, 52.8177, 23.6619 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA12" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.529535, 0, -0.848288, 0, 1, 0, 0.848288, 0, -0.529535, 3.13974, 55.9646, 44.9827 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA13" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.529535, 0, -0.848288, 0, 1, 0, 0.848288, 0, -0.529535, 35.9401, 54.0597, 21.4248 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA14" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.529535, 0, -0.848288, 0, 1, 0, 0.848288, 0, -0.529535, 14.0153, 57.6761, 37.5339 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA15" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.529535, 0, -0.848288, 0, 1, 0, 0.848288, 0, -0.529535, 22.8652, 52.8832, 38.9713 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA16" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.529535, 0, -0.848288, 0, 1, 0, 0.848288, 0, -0.529535, 17.5963, 54.2595, 31.963 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA17" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.701034, 0, 0.713128, 0, 1, 0, -0.713128, 0, 0.701034, 32.0843, 59.0325, 12.464 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA18" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.701034, 0, 0.713128, 0, 1, 0, -0.713128, 0, 0.701034, 6.63181, 56.521, 15.5159 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA19" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.701034, 0, 0.713128, 0, 1, 0, -0.713128, 0, 0.701034, 14.7989, 52.0802, 24.21 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA20" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.701034, 0, 0.713128, 0, 1, 0, -0.713128, 0, 0.701034, 37.1279, 55.227, 7.33339 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA21" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.701034, 0, 0.713128, 0, 1, 0, -0.713128, 0, 0.701034, -0.00382233, 53.3221, 23.2103 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA22" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.701034, 0, 0.713128, 0, 1, 0, -0.713128, 0, 0.701034, 24.8948, 56.9385, 12.244 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA23" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.701034, 0, 0.713128, 0, 1, 0, -0.713128, 0, 0.701034, 16.5679, 52.1456, 8.92006 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA24" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.701034, 0, 0.713128, 0, 1, 0, -0.713128, 0, 0.701034, 20.19, 53.5219, 16.9049 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA25" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.895572, 0, -0.444917, 0, 1, 0, 0.444917, 0, 0.895572, -12.8918, 59.0325, 30.5721 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA26" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.895572, 0, -0.444917, 0, 1, 0, 0.444917, 0, 0.895572, -23.697, 56.521, 7.32577 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA27" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.895572, 0, -0.444917, 0, 1, 0, 0.444917, 0, 0.895572, -29.425, 52.0802, 17.7889 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA28" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.895572, 0, -0.444917, 0, 1, 0, 0.444917, 0, 0.895572, -6.44866, 55.227, 33.773 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA29" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.895572, 0, -0.444917, 0, 1, 0, 0.444917, 0, 0.895572, -33.0716, 53.3221, 3.40765 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA30" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.895572, 0, -0.444917, 0, 1, 0, 0.444917, 0, 0.895572, -14.9154, 56.9385, 23.6698 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA31" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.895572, 0, -0.444917, 0, 1, 0, 0.444917, 0, 0.895572, -14.3417, 52.1456, 14.7223 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA32" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.895572, 0, -0.444917, 0, 1, 0, 0.444917, 0, 0.895572, -20.8069, 53.5219, 20.645 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA33" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.975323, 0, -0.220782, 0, 1, 0, 0.220782, 0, -0.975323, -9.651, 58.9754, -52.8513 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA34" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.975323, 0, -0.220782, 0, 1, 0, 0.220782, 0, -0.975323, 13.4095, 56.4639, -41.655 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA35" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.975323, 0, -0.220782, 0, 1, 0, 0.220782, 0, -0.975323, 11.2409, 52.023, -53.3846 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA36" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.975323, 0, -0.220782, 0, 1, 0, 0.220782, 0, -0.975323, -16.6679, 55.1698, -51.2629 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA37" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.975323, 0, -0.220782, 0, 1, 0, 0.220782, 0, -0.975323, 23.1521, 53.265, -44.5391 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA38" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.975323, 0, -0.220782, 0, 1, 0, 0.220782, 0, -0.975323, -3.72226, 56.8814, -48.7785 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA39" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.975323, 0, -0.220782, 0, 1, 0, 0.220782, 0, -0.975323, 1.48475, 52.0884, -41.4797 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA40" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.975323, 0, -0.220782, 0, 1, 0, 0.220782, 0, -0.975323, 2.75572, 53.4648, -50.155 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA41" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.32918, 0, 0.944267, 0, 1, 0, -0.944267, 0, 0.32918, -12.4598, 59.7701, -33.7831 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA42" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.32918, 0, 0.944267, 0, 1, 0, -0.944267, 0, 0.32918, -34.1688, 57.2586, -20.1499 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA43" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.32918, 0, 0.944267, 0, 1, 0, -0.944267, 0, 0.32918, -23.0704, 52.8177, -15.7783 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA44" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.32918, 0, 0.944267, 0, 1, 0, -0.944267, 0, 0.32918, -10.0916, 55.9646, -40.5766 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA45" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.32918, 0, 0.944267, 0, 1, 0, -0.944267, 0, 0.32918, -36.8813, 54.0597, -10.3582 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA46" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.32918, 0, 0.944267, 0, 1, 0, -0.944267, 0, 0.32918, -19.0542, 57.6761, -30.9105 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA47" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.32918, 0, 0.944267, 0, 1, 0, -0.944267, 0, 0.32918, -28.003, 52.8832, -30.3584 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA48" type="MeshInstance" parent="Buildings"]
+transform = Transform( 0.32918, 0, 0.944267, 0, 1, 0, -0.944267, 0, 0.32918, -21.3168, 54.2595, -24.6864 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA49" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.526288, 0, -0.850306, 0, 1, 0, 0.850306, 0, -0.526288, -31.1423, 59.0325, -2.46981 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA50" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.526288, 0, -0.850306, 0, 1, 0, 0.850306, 0, -0.526288, -6.99172, 56.521, -11.066 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA51" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.526288, 0, -0.850306, 0, 1, 0, 0.850306, 0, -0.526288, -16.8767, 52.0802, -17.7423 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA52" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.526288, 0, -0.850306, 0, 1, 0, 0.850306, 0, -0.526288, -34.9286, 55.227, 3.64767 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA53" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.526288, 0, -0.850306, 0, 1, 0, 0.850306, 0, -0.526288, -2.21861, 53.3221, -20.0355 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA54" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.526288, 0, -0.850306, 0, 1, 0, 0.850306, 0, -0.526288, -24.0817, 56.9385, -3.84263 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA55" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.526288, 0, -0.850306, 0, 1, 0, 0.850306, 0, -0.526288, -15.2263, 52.1456, -2.43913 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA56" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.526288, 0, -0.850306, 0, 1, 0, 0.850306, 0, -0.526288, -20.522, 53.5219, -9.42722 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA57" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.971702, 0, 0.236211, 0, 1, 0, -0.236211, 0, -0.971702, 8.72598, 59.0325, -30.061 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA58" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.971702, 0, 0.236211, 0, 1, 0, -0.236211, 0, -0.971702, 24.3969, 56.521, -9.77396 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA59" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.971702, 0, 0.236211, 0, 1, 0, -0.236211, 0, -0.971702, 27.6735, 52.0802, -21.2435 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA60" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.971702, 0, 0.236211, 0, 1, 0, -0.236211, 0, -0.971702, 1.73513, 55.227, -31.7604 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA61" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.971702, 0, 0.236211, 0, 1, 0, -0.236211, 0, -0.971702, 34.4053, 53.3221, -8.02227 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA62" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.971702, 0, 0.236211, 0, 1, 0, -0.236211, 0, -0.971702, 12.2236, 56.9385, -23.7758 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA63" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.971702, 0, 0.236211, 0, 1, 0, -0.236211, 0, -0.971702, 13.6394, 52.1456, -14.9224 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BuildingStyleA64" type="MeshInstance" parent="Buildings"]
+transform = Transform( -0.971702, 0, 0.236211, 0, 1, 0, -0.236211, 0, -0.971702, 18.6375, 53.5219, -22.1264 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="BGM" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 11 )
+autoplay = true
+
+[node name="BGMTween" type="Tween" parent="BGM"]
+
+[node name="Wind" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 10 )
+unit_db = 12.0
+
+[node name="WindTween" type="Tween" parent="Wind"]
